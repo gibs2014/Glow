@@ -2,11 +2,14 @@
   <h1>Items</h1>
 </div>
 
+<%= paginate @items %>
+
 <p><%= link_to 'Add a New Item', new_item_url, class: 'btn btn-primary' %></p>
 
 <table class="table table-hover">
   <thead>
     <tr>
+      <th>Image</th>
       <th>Name</th>
       <th>Category</th>
       <th>Colour</th>
@@ -15,8 +18,7 @@
       <th>Size</th>
       <th>Body shape</th>
       <th>Material</th>
-      <th>Image</th>
-      <th>Purchase link</th>
+      <th>Purchase</th>
       <th></th>
       <th></th>
       <th></th>
@@ -26,6 +28,7 @@
   <tbody>
     <% @items.each do |item| %>
       <tr>
+        <td><%= image_tag item.image, width:100 %></td>
         <td><%= item.name %></td>
         <td><%= item.category %></td>
         <td><%= item.colour %></td>
@@ -34,8 +37,7 @@
         <td><%= item.size %></td>
         <td><%= item.body_shape %></td>
         <td><%= item.material %></td>
-        <td><%= item.image %></td>
-        <td><%= item.purchase_link %></td>
+        <td><%= link_to "Click to Purchase", item.purchase_link%></td>
         <td><%= link_to '<i class="fa fa-search-plus"></i>'.html_safe, item_url(item), class: 'btn btn-primary' %></td>
         <td><%= link_to '<i class="fa fa-edit"></i>'.html_safe, edit_item_url(item), class: 'btn btn-warning' %></td>
         <td><%= link_to '<i class="fa fa-trash-o"></i>'.html_safe, item_url(item), method: 'delete', data: { confirm: "Do you really want to delete this item?" }, class: 'btn btn-danger' %></td>

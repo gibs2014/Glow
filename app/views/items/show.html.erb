@@ -2,6 +2,8 @@
   <h1>Item #<%= @item.id %></h1>
 </div>
 
+
+
 <dl class="dl-horizontal">
   <dt>Name</dt>
   <dd><%= @item.name %></dd>
@@ -28,9 +30,9 @@
   <dd><%= @item.material %></dd>
 
   <dt>Image</dt>
-  <dd><%= @item.image %></dd>
+  <dd><%= image_tag @item.image, width:100 %></dd>
 
   <dt>Purchase link</dt>
-  <dd><%= @item.purchase_link %></dd>
+  <dd><%= link_to "Click to Purchase", @item.purchase_link%> </dd>
 
 </dl>
