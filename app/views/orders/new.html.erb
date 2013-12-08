@@ -16,15 +16,20 @@
   <div class="form-group">
     <%= label_tag :user_id, nil, class: 'col-md-2 control-label' %>
     <div class="col-md-6">
+
+      <%= form_tag(orders_url, method: 'post', class: 'form-horizontal') do %>
+
       <%= select_tag :user_id, options_from_collection_for_select(User.all, :id, :full_name), class: 'form-control' %>
+
+      <tbody>
+      <% Item.all.each do |item| %>
+      <tr>
+        <td><%= image_tag item.image, width:100 %></td>
+        <td><%= check_box_tag "item_#{item.id}" %></td>
+      </tr>
+      </tbody>
+      <% end %>
     </div>
-
-<%= form_tag(orders_url, method: 'post', class: 'form-horizontal') do %>
-  <% Item.all.each do |item| %>
-    <%= label_tag("item_#{item.id}", image_tag('http://ecx.images-amazon.com/images/I/71RS3wri-DL._SX522_.jpg')) %>
-    <%= check_box_tag "item_#{item.id}" %>
-    <% end %>
-
   </div>
 
   <div class="form-group">
