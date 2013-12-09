@@ -4,12 +4,13 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   has_many :orders
+  has_many :order_items, :through => :orders
   has_many :items, :through => :orders
 
 
-  validates :size, :presence => true, :numericality => {only_integer:true}
-  validates :body_shape, :presence => true
-  validates :email_address, :uniqueness => true
+  #validates :size, :presence => true, :numericality => {only_integer:true}
+  #validates :body_shape, :presence => true
+  #validates :email_address, :uniqueness => true
 
   def full_name
     return first_name + " " + second_name
