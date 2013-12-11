@@ -1,1 +1,13 @@
-== GLOW app
+== GLOW app ==
+
+This MVP is defined by 4 key user stories:
+
+1. As a <user> I want <this site to help me to find workout clothes that suit my body size and shape> so that <I feel confident & authentic when going to the gym>
+
+2. As a <user> I want to <view a wide selection of clothes that are flattering to my size and shape> so that <I can pick workout clothes to suit my individual taste & style>
+
+3. As a <user> I want to <save clothes I like> so that <I can return and purchase at a later date>
+
+4. As a <user> I want to <save and access my saved profile> so that <I can apply my measurements quickly and easily on my next visit>
+
+
