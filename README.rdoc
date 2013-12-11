@@ -1,4 +1,4 @@
-== GLOW app ==
+== GLOW app
 
 This MVP is defined by 4 key user stories:
 
