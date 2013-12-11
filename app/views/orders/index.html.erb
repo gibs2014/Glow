@@ -9,7 +9,7 @@
     <tr>
       <th>Order ID</th>
       <th>Complete</th>
-      <th></th>
+      <th>User ID</th>
       <th></th>
       <th></th>
     </tr>
@@ -20,6 +20,7 @@
       <tr>
         <td><%= order.id %></td>
         <td><%= order.complete? %></td>
+        <td><%= order.user_id%></td>
         <td><%= link_to '<i class="fa fa-search-plus"></i>'.html_safe, order_url(order), class: 'btn btn-primary' %></td>
         <td><%= link_to '<i class="fa fa-edit"></i>'.html_safe, edit_order_url(order), class: 'btn btn-warning' %></td>
         <td><%= link_to '<i class="fa fa-trash-o"></i>'.html_safe, order_url(order), method: 'delete', data: { confirm: "Do you really want to delete this order?" }, class: 'btn btn-danger' %></td>

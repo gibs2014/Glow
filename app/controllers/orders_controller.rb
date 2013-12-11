@@ -14,7 +14,7 @@ class OrdersController < ApplicationController
 
   def create
     @order = Order.new
-    @order.user_id = params[:user_id]
+    @order.user_id = current_user.id
     @order.complete = params[:complete]
 
     if @order.save

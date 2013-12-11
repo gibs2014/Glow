@@ -1,5 +1,6 @@
 <div class="page-header">
-  <h1>New Order</h1>
+  <h1>Clothes for You <%= current_user.first_name%>!</h1>
+  <h3>We have combed all the clothes across the web to find items to suit your size and shape. Happy shopping!</h3>
 </div>
 
 
@@ -12,19 +13,12 @@
     <%end%>
 <%end%>
 
-
-  <div class="form-group">
-    <%= label_tag :user_id, nil, class: 'col-md-2 control-label' %>
-    <div class="col-md-6">
-
       <%= form_tag(orders_url, method: 'post', class: 'form-horizontal') do %>
 
-      <%= select_tag :user_id, options_from_collection_for_select(User.all, :id, :full_name), class: 'form-control' %>
-
-      <tbody>
-      <% Item.all.each do |item| %>
+       <tbody>
+      <% Item.where(:size => current_user.size, :body_shape => current_user.body_shape).each do |item| %>
       <tr>
-        <td><%= image_tag item.image, width:100 %></td>
+        <td><%= image_tag item.image, height:150 %></td>
         <td><%= check_box_tag "item_#{item.id}" %></td>
       </tr>
       </tbody>
@@ -32,16 +26,10 @@
     </div>
   </div>
 
-  <div class="form-group">
-    <%= label_tag :complete, nil, class: 'col-md-2 control-label' %>
-    <div class="col-md-6">
-      <%= check_box_tag :complete %>
-    </div>
-  </div>
 
   <div class="form-group">
-    <div class="col-md-offset-2 col-md-6">
-      <%= submit_tag "Create Order", class: 'btn btn-primary' %>
+    <div class="col-md-offset-8 col-md-6">
+      <%= submit_tag "Add Selection to Basket", class: 'btn btn-primary' %>
     </div>
   </div>
 <% end %>

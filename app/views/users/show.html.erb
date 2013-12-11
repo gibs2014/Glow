@@ -1,8 +1,9 @@
 <div class="page-header">
-  <h1>User #<%= @user.id %></h1>
+  <h1><%= @user.first_name %>'s Profile</h1>
 </div>
 
 <dl class="dl-horizontal">
+
   <dt>First name</dt>
   <dd><%= @user.first_name %></dd>
 
@@ -15,9 +16,6 @@
   <dt>Email address</dt>
   <dd><%= @user.email_address %></dd>
 
-  <dt>Password</dt>
-  <dd><%= @user.password %></dd>
-
   <dt>Size</dt>
   <dd><%= @user.size %></dd>
 
@@ -25,3 +23,11 @@
   <dd><%= @user.body_shape %></dd>
 
 </dl>
+
+<h4>Changed size?! Changed shape?! Edit your profile to update your clothes selection:</h4>
+
+  <div class="form-group">
+    <div class="col-md-offset-0 col-md-6">
+ <p><%= link_to 'Edit my profile', edit_user_url, class: 'btn btn-primary' %></p>
+    </div>
+  </div>

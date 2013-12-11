@@ -31,6 +31,7 @@ class OrderItemsController < ApplicationController
     @order_item = OrderItem.find_by(id: params[:id])
     @order_item.order_id = params[:order_id]
     @order_item.item_id = params[:item_id]
+    @order_item.purchased = params[:purchased]
 
     if @order_item.save
       redirect_to order_items_url, notice: "Order item updated successfully."

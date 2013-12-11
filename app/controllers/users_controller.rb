@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
   def index
-      @users = User.page(params[:page]).per(3)
+    @users = User.page(params[:page]).per(3)
   end
 
   def show
@@ -34,7 +34,7 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user = User.find_by(id: params[:id])
+    @user = User.find_by(id: current_user.id)
     @user.first_name = params[:first_name]
     @user.second_name = params[:second_name]
     @user.date_of_birth = params[:date_of_birth]

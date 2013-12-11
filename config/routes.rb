@@ -1,6 +1,6 @@
 Glow::Application.routes.draw do
   devise_for :users
-  root "items#index"
+  root "orders#new"
 
   # Routes for the Order resource:
   # CREATE

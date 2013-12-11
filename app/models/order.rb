@@ -3,7 +3,7 @@ class Order < ActiveRecord::Base
   has_many :order_items
   has_many :items, :through => :order_items
 
-  validates :user_id, :presence => true
+  validates :user, :presence => true
 
 end
 

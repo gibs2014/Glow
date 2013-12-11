@@ -8,11 +8,11 @@ class User < ActiveRecord::Base
   has_many :items, :through => :orders
 
 
-  #validates :size, :presence => true, :numericality => {only_integer:true}
-  #validates :body_shape, :presence => true
-  #validates :email_address, :uniqueness => true
+  validates :size, :presence => true, :numericality => {only_integer:true}
+  validates :body_shape, :presence => true
+  validates :email_address, :uniqueness => true
 
   def full_name
-    return first_name + " " + second_name
+    return first_name.to_s + " " + second_name.to_s
   end
 end
